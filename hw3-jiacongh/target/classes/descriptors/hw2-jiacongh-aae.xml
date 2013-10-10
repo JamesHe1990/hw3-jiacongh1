@@ -12,11 +12,11 @@
     <delegateAnalysisEngine key="AnswerAnnotator">
       <import name="descriptors.AnswerAnnotator"/>
     </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="NGramAnnotator">
-      <import name="descriptors.NGramAnnotator"/>
-    </delegateAnalysisEngine>
-  <delegateAnalysisEngine key="TokenAnnotaor">
+    <delegateAnalysisEngine key="TokenAnnotaor">
       <import name="descriptors.TokenAnnotaor"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="NGramAnnotator">
+      <import name="descriptors.NGramAnnotator"/>
     </delegateAnalysisEngine>
   <delegateAnalysisEngine key="AnswerScoreAnnotator">
       <import name="descriptors.AnswerScoreAnnotator"/>
@@ -30,15 +30,25 @@
     <description/>
     <version>1.0</version>
     <vendor/>
-    <configurationParameters/>
+    <configurationParameters searchStrategy="language_fallback">
+      <configurationParameter>
+        <name>puncPattern</name>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+        <overrides>
+          <parameter>TokenAnnotaor/puncPattern</parameter>
+        </overrides>
+      </configurationParameter>
+    </configurationParameters>
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
         <node>SentenceAnnotator</node>
         <node>QuestionAnnotator</node>
         <node>AnswerAnnotator</node>
-        <node>NGramAnnotator</node>
-      <node>TokenAnnotaor</node>
+        <node>TokenAnnotaor</node>
+      <node>NGramAnnotator</node>
       <node>AnswerScoreAnnotator</node>
       <node>EvaluationAnnotation</node>
       </fixedFlow>

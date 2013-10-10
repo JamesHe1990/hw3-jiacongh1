@@ -36,6 +36,7 @@
         <outputs>
           <type allAnnotatorFeatures="true">edu.cmu.deiis.types.AnswerScore</type>
           <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Answer</type>
+        <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Token</type>
         </outputs>
         <languagesSupported/>
       </capability>

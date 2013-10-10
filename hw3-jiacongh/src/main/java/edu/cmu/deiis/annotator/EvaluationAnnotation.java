@@ -6,6 +6,7 @@ import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIndex;
 import org.apache.uima.jcas.JCas;
+import org.cleartk.ne.type.NamedEntityMention;
 
 import edu.cmu.deiis.types.Answer;
 import edu.cmu.deiis.types.AnswerScore;
@@ -60,6 +61,8 @@ public class EvaluationAnnotation extends JCasAnnotator_ImplBase {
         standard=1;
       System.out.println(standard+"  "+aswSc.getCoveredText()+"   Score:"+String.format("%1$.2f",aswSc.getScore()));
     }
+    
+    //printNamedEntity(aJCas);
 
   }
 
@@ -67,4 +70,24 @@ public class EvaluationAnnotation extends JCasAnnotator_ImplBase {
    * @param args
    */
 
+  
+  public void printNamedEntity(JCas aJcas){
+    //org.apache.uima.jcas.tcas.Annotation document = (org.apache.uima.jcas.tcas.Annotation) aJcas.getDocumentAnnotationFs();
+    
+    System.out.println("Print Name Entity Starts------------------------------!");
+    FSIndex nameEntityIndex = aJcas.getAnnotationIndex(NamedEntityMention.type);
+
+    // Iterator to get each sentence annotation
+    Iterator nameEntityIter = nameEntityIndex.iterator();
+    
+    while (nameEntityIter.hasNext()) {
+      NamedEntityMention namedEntity = (NamedEntityMention) nameEntityIter.next();
+      
+      String line = namedEntity.getCoveredText();
+      //int x= namedEntity.getBegin();
+      System.out.println(line);
+      
+    }
+    System.out.println("Print Name Entity Ends------------------------------!");
+  }
 }

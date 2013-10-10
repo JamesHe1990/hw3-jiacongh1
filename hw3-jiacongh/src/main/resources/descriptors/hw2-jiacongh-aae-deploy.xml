@@ -6,7 +6,7 @@
   <deployment protocol="jms" provider="activemq">
     <casPool numberOfCASes="1" initialFsHeapSize="2000000"/>
     <service>
-      <inputQueue endpoint="myQueueName" brokerURL="tcp://0.0.0.0:61616" prefetch="0"/>
+      <inputQueue endpoint="ScnlpQueue" brokerURL="tcp://mu.lti.cs.cmu.edu:61616" prefetch="0"/>
       <topDescriptor>
 <import location="file:/C:/Users/James_He/git/hw3-jiacongh1/hw3-jiacongh/src/main/resources/descriptors/hw2-jiacongh-aae.xml"/>
       </topDescriptor>

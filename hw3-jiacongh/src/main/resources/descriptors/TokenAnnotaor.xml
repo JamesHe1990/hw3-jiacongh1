@@ -38,7 +38,6 @@
         </inputs>
         <outputs>
           <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Token</type>
-        <type allAnnotatorFeatures="true">edu.cmu.deiis.types.NGram</type>
         </outputs>
         <languagesSupported/>
       </capability>

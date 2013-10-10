@@ -167,5 +167,25 @@ public class AnswerScoreAnnotator extends JCasAnnotator_ImplBase {
     }
   }
 */
+  
+  public void printNamedEntity(JCas aJcas){
+    //org.apache.uima.jcas.tcas.Annotation document = (org.apache.uima.jcas.tcas.Annotation) aJcas.getDocumentAnnotationFs();
+    
+    System.out.println("Print Name Entity Starts------------------------------!");
+    FSIndex nameEntityIndex = aJcas.getAnnotationIndex(NamedEntityMention.type);
+
+    // Iterator to get each sentence annotation
+    Iterator nameEntityIter = nameEntityIndex.iterator();
+    
+    while (nameEntityIter.hasNext()) {
+      NamedEntityMention namedEntity = (NamedEntityMention) nameEntityIter.next();
+      
+      String line = namedEntity.getCoveredText();
+      System.out.println(line);
+      
+    }
+    System.out.println("Print Name Entity Ends------------------------------!");
+  }
+
 }
 

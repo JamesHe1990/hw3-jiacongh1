@@ -69,15 +69,9 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
         String token=ansToken[i];
         int length = token.length();
         int end = begin + length;
-/*        if(i==ansToken.length-1){
-          end=end-1;   ///////////»»ÐÐ·û
-        }*/
-        //System.out.println("token:"+token+"   length:"+length);
         Token tk = new Token(aJCas, begin, end);
         alAnsNGram.add(tk);
         tk.addToIndexes();
-        //System.out.println("begin:" + begin + "end:" + end);
-        //begin += (length + 1);
         begin=end+1;
 
       }
@@ -109,10 +103,10 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
         //begin += (length + 1);
         begin=end+1;
       }
-      
       AnnotateNGram(aJCas, alQstNGram, question);
     }
-
+    
+    
   }
 
   /**
