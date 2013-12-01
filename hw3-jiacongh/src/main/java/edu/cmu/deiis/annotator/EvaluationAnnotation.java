@@ -7,6 +7,7 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.FSIndex;
 import org.apache.uima.jcas.JCas;
 import org.cleartk.ne.type.NamedEntityMention;
+import org.cleartk.token.type.Token;
 
 import edu.cmu.deiis.types.Answer;
 import edu.cmu.deiis.types.AnswerScore;
@@ -25,6 +26,18 @@ public class EvaluationAnnotation extends JCasAnnotator_ImplBase {
   public void process(JCas aJCas) throws AnalysisEngineProcessException {
     FSIndex aswScoreIndex = aJCas.getAnnotationIndex(AnswerScore.type);
     Iterator aswScoreIter = aswScoreIndex.iterator();
+    
+    /***********************************************************************/
+    FSIndex tokenIndex = aJCas.getAnnotationIndex(Token.type);
+    Iterator tokenIter = tokenIndex.iterator();
+    while(tokenIter.hasNext()){
+      Token tkn =(Token) tokenIter.next();
+      System.out.println(tkn.getCoveredText());
+    }
+    /***********************************************************************/
+    
+    
+    
     ArrayList <AnswerScore> al=new ArrayList<AnswerScore>();
     ArrayList <AnswerScore> alnew= new ArrayList<AnswerScore>();
     while(aswScoreIter.hasNext()){
@@ -60,8 +73,14 @@ public class EvaluationAnnotation extends JCasAnnotator_ImplBase {
       if(x)
         standard=1;
       System.out.println(standard+"  "+aswSc.getCoveredText()+"   Score:"+String.format("%1$.2f",aswSc.getScore()));
+      //System.out.println("what the fuck");
     }
-    
+/*    FSIndex TokenIndex = aJCas.getAnnotationIndex(Token.type);
+    Iterator tokenIter = TokenIndex.iterator();
+    while (tokenIter.hasNext()) {
+      System.out.println("sadf");
+    }
+    */
     //printNamedEntity(aJCas);
 
   }
@@ -76,18 +95,32 @@ public class EvaluationAnnotation extends JCasAnnotator_ImplBase {
     
     System.out.println("Print Name Entity Starts------------------------------!");
     FSIndex nameEntityIndex = aJcas.getAnnotationIndex(NamedEntityMention.type);
+    FSIndex TokenIndex = aJcas.getAnnotationIndex(Token.type);
 
     // Iterator to get each sentence annotation
     Iterator nameEntityIter = nameEntityIndex.iterator();
+    Iterator tokenIter = TokenIndex.iterator();
     
-    while (nameEntityIter.hasNext()) {
-      NamedEntityMention namedEntity = (NamedEntityMention) nameEntityIter.next();
-      
+    while (tokenIter.hasNext()) {
+      NamedEntityMention namedEntity = (NamedEntityMention) tokenIter.next();
+//      
       String line = namedEntity.getCoveredText();
-      //int x= namedEntity.getBegin();
-      System.out.println(line);
-      
+//      //int x= namedEntity.getBegin();
+      System.out.println(""+line);
+      org.cleartk.token.type.Token token =(org.cleartk.token.type.Token) tokenIter.next();
+      System.out.println(token.getPos());
+      if(token.getPos().equals("NNP"));
+            System.out.println("namedEntity: " + token.toString());
     }
     System.out.println("Print Name Entity Ends------------------------------!");
+//    while(stanfordEntityIter.hasNext())
+//    {
+//      org.cleartk.token.type.Token token =(org.cleartk.token.type.Token) stanfordEntityIter.next();
+//      if(token.getPos().equals("NNP"));
+//        System.out.println("namedEntity: " + token.toString());
+//    }
+
+  
   }
+  
 }

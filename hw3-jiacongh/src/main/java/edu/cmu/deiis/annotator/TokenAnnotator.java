@@ -12,6 +12,7 @@ import org.apache.uima.cas.FSIndex;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.cas.FSArray;
 import org.apache.uima.resource.ResourceInitializationException;
+import org.cleartk.ne.type.NamedEntityMention;
 
 import edu.cmu.deiis.types.Annotation;
 import edu.cmu.deiis.types.Answer;
@@ -72,6 +73,8 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
         Token tk = new Token(aJCas, begin, end);
         alAnsNGram.add(tk);
         tk.addToIndexes();
+        NamedEntityMention ne = new NamedEntityMention(aJCas, begin, end);
+        ne.addToIndexes();
         begin=end+1;
 
       }
@@ -99,6 +102,7 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
         Token tk = new Token(aJCas, begin, end);        
         alQstNGram.add(tk);
         tk.addToIndexes();
+        
         //System.out.println("begin:" + begin + "end:" + end);
         //begin += (length + 1);
         begin=end+1;

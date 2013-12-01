@@ -12,6 +12,8 @@ import edu.cmu.deiis.types.Answer;
 import edu.cmu.deiis.types.AnswerScore;
 import edu.cmu.deiis.types.NGram;
 import edu.cmu.deiis.types.Question;
+import edu.cmu.deiis.types.Token;
+
 import org.cleartk.ne.type.NamedEntity;
 import org.cleartk.ne.type.NamedEntityMention;
 
@@ -55,7 +57,18 @@ public class AnswerScoreAnnotator extends JCasAnnotator_ImplBase {
     }
     //System.out.println("ok");
     //evaluateScore(aJCas);
-
+    printNamedEntity(aJCas);
+    
+    
+    /***************************************************/
+/*    FSIndex tokenIndex = aJCas.getAnnotationIndex(Token.type);
+    Iterator tokenIter = tokenIndex.iterator();
+    while(tokenIter.hasNext()){
+      Token tkn =(Token) tokenIter.next();
+      System.out.println(tkn.getCoveredText());
+    }
+    System.out.println("xxxxx");
+    /***************************************************/
   }
 
   /**
@@ -181,6 +194,7 @@ public class AnswerScoreAnnotator extends JCasAnnotator_ImplBase {
       NamedEntityMention namedEntity = (NamedEntityMention) nameEntityIter.next();
       
       String line = namedEntity.getCoveredText();
+      //namedEntity.get
       System.out.println(line);
       
     }

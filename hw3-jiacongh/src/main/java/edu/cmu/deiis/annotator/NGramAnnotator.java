@@ -31,11 +31,11 @@ public class NGramAnnotator extends JCasAnnotator_ImplBase {
     
     FSIndex tokenIndex = aJCas.getAnnotationIndex(Token.type);
     Iterator tokenIter = tokenIndex.iterator();
- /*   while(tokenIter.hasNext()){
+/*    while(tokenIter.hasNext()){
       Token tkn =(Token) tokenIter.next();
       System.out.println(tkn.getCoveredText());
-    }*/
-
+    }
+*/
 
     //addNgramQuestion(aJCas, questionIter,tokenIter);
     //addNgram(aJCas, answerIter, tokenIter);

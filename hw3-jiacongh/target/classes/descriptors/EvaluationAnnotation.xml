@@ -12,7 +12,8 @@
     <typeSystemDescription>
       <imports>
         <import name="descriptors.deiis_types"/>
-      </imports>
+      <import name="org.cleartk.ne.type.NamedEntityMention"/>
+        </imports>
     </typeSystemDescription>
     <typePriorities/>
     <fsIndexCollection/>

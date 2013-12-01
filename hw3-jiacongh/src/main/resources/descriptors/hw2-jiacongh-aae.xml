@@ -24,9 +24,12 @@
   <delegateAnalysisEngine key="EvaluationAnnotation">
       <import name="descriptors.EvaluationAnnotation"/>
     </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="StanfordCoreNLPDescriptor">
+      <import name="descriptors.StanfordCoreNLPDescriptor"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
-    <name>aae</name>
+    <name>hw2-jiacongh-aae</name>
     <description/>
     <version>1.0</version>
     <vendor/>
@@ -51,6 +54,7 @@
       <node>NGramAnnotator</node>
       <node>AnswerScoreAnnotator</node>
       <node>EvaluationAnnotation</node>
+      <node>StanfordCoreNLPDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <typePriorities/>

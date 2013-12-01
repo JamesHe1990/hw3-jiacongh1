@@ -18,7 +18,9 @@
     <fsIndexCollection/>
     <capabilities>
       <capability>
-        <inputs/>
+        <inputs>
+          <type allAnnotatorFeatures="true">uima.tcas.DocumentAnnotation</type>
+        </inputs>
         <outputs>
           <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Sentence</type>
         </outputs>
