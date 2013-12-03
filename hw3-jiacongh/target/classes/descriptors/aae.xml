@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>false</primitive>  
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="SentenceAnnotator">
+      <import name="descriptors.SentenceAnnotator"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="QuestionAnnotator">
+      <import name="descriptors.QuestionAnnotator"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="AnswerAnnotator">
+      <import name="descriptors.AnswerAnnotator"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TokenAnnotaor">
+      <import name="descriptors.TokenAnnotaor"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="NGramAnnotator">
+      <import name="descriptors.NGramAnnotator"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="AnswerScoreAnnotator">
+      <import name="descriptors.AnswerScoreAnnotator"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="EvaluationAnnotation">
+      <import name="descriptors.EvaluationAnnotation"/>
+    </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="StanfordCoreNLPDescriptor">
+      <import name="descriptors.StanfordCoreNLPDescriptor"/>
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
+  <analysisEngineMetaData>
+    <name>hw2-jiacongh-aae</name>
+    <description/>
+    <version>1.0</version>
+    <vendor/>
+    <configurationParameters searchStrategy="language_fallback">
+      <configurationParameter>
+        <name>puncPattern</name>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+        <overrides>
+          <parameter>TokenAnnotaor/puncPattern</parameter>
+        </overrides>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>SentenceAnnotator</node>
+        <node>QuestionAnnotator</node>
+        <node>AnswerAnnotator</node>
+        <node>TokenAnnotaor</node>
+      <node>NGramAnnotator</node>
+      <node>AnswerScoreAnnotator</node>
+      <node>EvaluationAnnotation</node>
+      <node>StanfordCoreNLPDescriptor</node>
+      </fixedFlow>
+    </flowConstraints>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Sentence</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Question</type>
+          <type allAnnotatorFeatures="true">uima.tcas.DocumentAnnotation</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.AnswerScore</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Answer</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Token</type>
+        <type allAnnotatorFeatures="true">edu.cmu.deiis.types.NGram</type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+  <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>
