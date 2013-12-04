@@ -78,7 +78,7 @@ public class AnswerScoreAnnotator extends JCasAnnotator_ImplBase {
     FSIndex qstIndex = aJCas.getAnnotationIndex(Question.type);
     Iterator qstIter = qstIndex.iterator();
     Boolean flag = true; 
-    ArrayList<NGram> qstNGramList = new ArrayList<NGram>();//返回它
+    ArrayList<NGram> qstNGramList = new ArrayList<NGram>();//
     while (qstIter.hasNext()) {
       if(!flag){
         throw new RuntimeException("multiple questions in a file");
@@ -108,7 +108,7 @@ public class AnswerScoreAnnotator extends JCasAnnotator_ImplBase {
     FSIndex aswIndex = aJCas.getAnnotationIndex(Answer.type);
     Iterator aswIter = aswIndex.iterator();
     ArrayList nGramAndAns[]=new ArrayList[2];
-    ArrayList<ArrayList<NGram>> aswNGramList = new ArrayList<ArrayList<NGram>>();//返回它
+    ArrayList<ArrayList<NGram>> aswNGramList = new ArrayList<ArrayList<NGram>>();//
     ArrayList<Answer>aswList=new ArrayList<Answer>();
     int i=0;
     while(aswIter.hasNext()){

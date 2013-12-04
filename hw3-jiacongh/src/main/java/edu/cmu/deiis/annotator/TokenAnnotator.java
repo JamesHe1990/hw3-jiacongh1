@@ -97,7 +97,7 @@ public class TokenAnnotator extends JCasAnnotator_ImplBase {
         int length = token.length();
         int end = begin + length;
 /*        if(i==qstToken.length-1){
-          end=end-1;   ///////////»»ÐÐ·û
+          end=end-1;   ///////////
         }*/
         Token tk = new Token(aJCas, begin, end);        
         alQstNGram.add(tk);

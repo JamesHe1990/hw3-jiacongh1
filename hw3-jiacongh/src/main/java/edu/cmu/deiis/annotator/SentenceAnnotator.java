@@ -81,7 +81,7 @@ public class SentenceAnnotator extends JCasAnnotator_ImplBase {
         }
       }
       if (!isWhitespace) {
-        m.newAnnotation(jcas, start, end-2).addToIndexes();//////»»ÐÐ·û
+        m.newAnnotation(jcas, start, end-2).addToIndexes();//////
       }
     }
   }
